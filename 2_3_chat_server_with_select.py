@@ -24,7 +24,7 @@ def send(channel, *args):
     channel.send(buffer)
 
 def receive(channel):
-    size = struct.calcszie("L")
+    size = struct.calcsize("L")
     size = channel.recv(size)
     try:
         size = socket.ntohl(struct.unpack("L", size)[0])
@@ -44,7 +44,7 @@ class ChatServer(object):
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.server.bind((SERVER_HOST, port))
-        print "Server listening to port: %s ..." % port
+        print "Server listening to port: %s ..." %port
         self.server.listen(backlog)
         # Catch keyboard interrupts
         signal.signal(signal.SIGINT, self.sighandler)
@@ -84,7 +84,7 @@ class ChatServer(object):
                     # compute client name and send back
                     self.clients += 1
                     send(client, 'CLIENT: ' + str(address[0]))
-                    inputs.append(clinet)
+                    inputs.append(client)
                     self.clientmap[client] = (address, cname)
                     # Send joining information to other clients
                     msg = "\n(Connected : New client (%d) from %s" % (self.clients, self.get_client_name(client))
