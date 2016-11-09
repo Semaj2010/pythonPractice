@@ -6,7 +6,6 @@
 
 
 import argparse
-import httplib
 
 REMOTE_SERVER_HOST = 'www.google.co.kr'
 REMOTE_SERVER_PATH = '/'
@@ -16,22 +15,22 @@ class HTTPClient:
         self.host = host
 
     def fetch(self, path):
-        http = httplib.HTTP(self.host)
+        http = .HTTP(self.host)
 
 #Prepare header
         http.putrequest("GET", path)
         http.putrequest("User-Agent", __file__)
         http.putrequest("Host", self.host)
-        http.putrequest("Accpt", "*/*")
+        http.putrequest("Accept", "*/*")
         http.endheaders()
 
         try:
             errcode, errmsg, headers = http.getreply()
 
         except Exception as e:
-            print "Client failed error code: %s message:%s headers:%s" % (errcode, errmsg, headers)
+            print("Client failed error code: %s message:%s headers:%s" % (errcode, errmsg, headers))
         else:
-            print "Got homepage from %s" %self.host
+            print("Got homepage from %s" %self.host)
 
             file = http.getfile()
             return file.read()
@@ -43,5 +42,5 @@ if __name__ == "__main__":
     given_args = parser.parse_args()
     host, path = given_args.host, given_args.path
     client = HTTPClient(host)
-    print client.fetch(path)
+    print(client.fetch(path))
 

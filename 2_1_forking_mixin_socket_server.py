@@ -26,13 +26,13 @@ class ForkedClient():
         """Client playing with the server"""
         # Send the data to server
         current_process_id = os.getpid()
-        print 'PID %s Sending echo message to the server : %s' % (current_process_id, ECHO_MSG)
+        print('PID %s Sending echo message to the server : %s' % (current_process_id, ECHO_MSG))
         sent_data_length = self.sock.send(ECHO_MSG)
-        print "Sent: %d characters, so far..." %sent_data_length
+        print("Sent: %d characters, so far..." %sent_data_length)
 
         # Display server response
         response = self.sock.recv(BUF_SIZE)
-        print "PID %s received: %s " % (current_process_id, response[5:])
+        print("PID %s received: %s " % (current_process_id, response[5:]))
 
     def shutdown(self):
         """ Cleanup the client socket """
@@ -44,7 +44,7 @@ class ForkingServerRequestHandler(SocketServer.BaseRequestHandler):
         data = self.request.recv(BUF_SIZE)
         current_process_id = os.getpid()
         response = '%s: %s' % (current_process_id, data)
-        print "Server sending response [current_process_id: data] = [%s]" %response
+        print("Server sending response [current_process_id: data] = [%s]" %response)
         self.request.send(response)
         return
 class ForkingServer(SocketServer.ForkingMixIn, SocketServer.TCPServer, ):
@@ -58,7 +58,7 @@ def main():
     server_thread = threading.Thread(target=server.serve_forever)
     server_thread.setDaemon(True) # Don't hang on exit
     server_thread.start()
-    print 'Server loop running PID: %s' % os.getpid()
+    print('Server loop running PID: %s' % os.getpid())
 
     # Launch the clients(s)
     client1 = ForkedClient(ip, port)

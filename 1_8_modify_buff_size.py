@@ -14,13 +14,13 @@ def modify_buff_size():
 
     # Get the size of the socket's send buffer
     bufsize = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
-    print "Buffer size [Before]:%d" % bufsize
+    print("Buffer size [Before]:%d" % bufsize)
 
     sock.setsockopt(socket.SOL_TCP, socket.TCP_NODELAY, 1)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, SEND_BUF_SIZE)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, RECV_BUF_SIZE)
     bufsize = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
-    print "Buffer size [After]:%d" % bufsize
+    print("Buffer size [After]:%d" % bufsize)
 
 if __name__ == '__main__':
     modify_buff_size()
