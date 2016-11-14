@@ -11,7 +11,7 @@ BUFSIZE = 1024
 ADDR = (HOST, PORT)
 
 # Socket object create
-clntSock = socket(socket.AF_INET, socket.SOCK_STREAM)
+clntSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # try to connect to server
 try:
@@ -31,7 +31,7 @@ while True:
     try:
         connection_list = [sys.stdin, clntSock]
 
-        read_socket, wrtie_socket, error_socket = select(connection_list, [], [], 10)
+        read_socket, write_socket, error_socket = select(connection_list, [], [], 10)
 
         for sock in read_socket:
             if sock == clntSock:
