@@ -1,7 +1,6 @@
-#!/usr/bin/env python
 # -*- Coding: UTF-8 -*-
 # Python Network Programming Cookbook -- Chapter -2
-# This program is optimized for python 2.7
+# This program is optimized for python 3.5
 # It may run on any other version with/without modifications.
 
 import select
@@ -64,7 +63,7 @@ class ChatServer(object):
     def get_client_name(self, client):
         """Return the name of the client"""
         info = self.clientmap[client]
-        host, name = info[0][0], info[1]
+        [host, name] = info[0][0], info[1]
         return '@'.join((name, host))
 
     def run(self):
@@ -80,7 +79,7 @@ class ChatServer(object):
             for sock in readable:
                 if sock == self.server:
                     # handle the server socket
-                    client, address = self.server.accept()
+                    [client, address] = self.server.accept()
                     print("Chat server: got connection %d from %s" % (client.fileno(), address))
                     # read the login name
                     cname = receive(client).split('NAME: ')[1]

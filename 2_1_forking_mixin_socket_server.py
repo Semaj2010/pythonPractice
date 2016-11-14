@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- Coding: UTF-8 -*-
 # Python Network Programming Cookbook -- Chapter -2
-# This program is optimized for python 2.7
+# This program is optimized for python 2.
 # It may run on any other version with/without modifications.
 
 import os
