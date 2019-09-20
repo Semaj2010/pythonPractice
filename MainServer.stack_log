@@ -1,0 +1,45 @@
+2016-11-25 11:29:40,020: (1480040960_0) Traceback (most recent call last):
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1105, in handle
+    data = self.__parser.parse(self)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 875, in parse
+    buf += f.read(diff)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1149, in read
+    r,_,_ = select([self.request], [], [], wait)
+KeyboardInterrupt
+
+2016-11-25 12:00:19,416: (1480042819_0) Traceback (most recent call last):
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1107, in handle
+    response = self.dispatch(data)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1079, in dispatch
+    return getattr(self, codename)(data)
+  File "/home/semaj/PycharmProjects/networkPJ/MainServer.py", line 48, in login_data
+    uid = bytes.decode(self.logindata.userID)
+TypeError: descriptor 'decode' requires a 'bytes' object but received a 'CString'
+
+2016-11-25 12:01:58,863: (1480042918_0) Traceback (most recent call last):
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1107, in handle
+    response = self.dispatch(data)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1079, in dispatch
+    return getattr(self, codename)(data)
+  File "/home/semaj/PycharmProjects/networkPJ/MainServer.py", line 65, in login_data
+    if password == bytes.decode(self.logindata.passwd) :
+TypeError: descriptor 'decode' requires a 'bytes' object but received a 'CString'
+
+2016-11-25 12:03:01,308: (1480042947_1) Traceback (most recent call last):
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1112, in handle
+    data = self.__parser.parse(self)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 875, in parse
+    buf += f.read(diff)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1149, in read
+    r,_,_ = select([self.request], [], [], wait)
+KeyboardInterrupt
+
+2016-11-25 12:19:14,513: (1480043954_0) Traceback (most recent call last):
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1107, in handle
+    response = self.dispatch(data)
+  File "/home/semaj/PycharmProjects/netvenv/lib/python3.5/site-packages/protlib.py", line 1079, in dispatch
+    return getattr(self, codename)(data)
+  File "/home/semaj/PycharmProjects/networkPJ/MainServer.py", line 56, in login_data
+    password = row[0]
+TypeError: 'NoneType' object is not subscriptable
+
